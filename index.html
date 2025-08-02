@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Patient Generator</h1>
+    <div id="controls">
+        <label for="stability">Patient Stability:</label>
+        <select id="stability">
+            <option value="stable">Stable</option>
+            <option value="unstable">Unstable</option>
+        </select>
+
+        <label for="chiefComplaint">Chief Complaint:</label>
+        <select id="chiefComplaint">
+            <option value="sob_asthma">Shortness of Breath / Asthma</option>
+            <option value="chest_pain">Chest Pain</option>
+            <option value="allergic_reaction">Allergic Reaction</option>
+            <option value="hypoglycemia">Hypoglycemia</option>
+            <option value="opioid_od">Opioid Overdose</option>
+            <option value="trauma">Trauma</option>
+        </select>
+
+        <button id="newPatientBtn">New Patient</button>
+        <button id="randomPatientBtn">Random Patient</button>
+    </div>
+
+    <div id="patientInfo">
+        <!-- Generated patient info will appear here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const newPatientBtn = document.getElementById('newPatientBtn');
     const randomPatientBtn = document.getElementById('randomPatientBtn');
+    const completeAssessmentBtn = document.getElementById('completeAssessmentBtn');
+
+    const requiredSteps = ['sceneSafety', 'airway', 'breathing', 'circulation', 'transportDecision', 'vitalSigns', 'reassessment'];
+    const stepNames = {
+        sceneSafety: 'Scene safety / PPE',
+        airway: 'Assess airway',
+        breathing: 'Assess breathing',
+        circulation: 'Assess circulation',
+        transportDecision: 'Transport decision',
+        vitalSigns: 'Obtain vital signs',
+        reassessment: 'Reassessment'
+    };
 
     newPatientBtn.addEventListener('click', function() {
         const stability = document.getElementById('stability').value;
@@ -15,10 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomChiefComplaint = chiefComplaintOptions[Math.floor(Math.random() * chiefComplaintOptions.length)];
         generatePatient(randomStability, randomChiefComplaint);
     });
+
+    completeAssessmentBtn.addEventListener('click', function() {
+        const checked = Array.from(document.querySelectorAll('#assessmentForm input[type="checkbox"]:checked')).map(cb => cb.value);
+        const missing = requiredSteps.filter(step => !checked.includes(step));
+        const resultDiv = document.getElementById('assessmentResult');
+        if (missing.length > 0) {
+            const missingNames = missing.map(step => stepNames[step]).join(', ');
+            resultDiv.textContent = `Assessment failed: missing ${missingNames}.`;
+            resultDiv.style.color = 'red';
+        } else {
+            resultDiv.textContent = 'Assessment completed successfully!';
+            resultDiv.style.color = 'green';
+        }
+    });
 });
 
 function generatePatient(stability, chiefComplaint) {
     let patientData = {};
+    resetAssessment();
 
     switch(chiefComplaint) {
         case 'sob_asthma':
@@ -54,6 +81,15 @@ function displayPatientData(patientData) {
         const p = document.createElement('p');
         p.textContent = `${key}: ${value}`;
         patientInfoDiv.appendChild(p);
+    }
+}
+
+function resetAssessment() {
+    const checkboxes = document.querySelectorAll('#assessmentForm input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = false);
+    const resultDiv = document.getElementById('assessmentResult');
+    if (resultDiv) {
+        resultDiv.textContent = '';
     }
 }
 

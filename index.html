@@ -32,6 +32,21 @@
         <!-- Generated patient info will appear here -->
     </div>
 
+    <div id="assessment">
+        <h2>Assessment Checklist</h2>
+        <form id="assessmentForm">
+            <label><input type="checkbox" name="step" value="sceneSafety"> Scene safety / PPE</label>
+            <label><input type="checkbox" name="step" value="airway"> Assess airway</label>
+            <label><input type="checkbox" name="step" value="breathing"> Assess breathing</label>
+            <label><input type="checkbox" name="step" value="circulation"> Assess circulation</label>
+            <label><input type="checkbox" name="step" value="transportDecision"> Make transport decision</label>
+            <label><input type="checkbox" name="step" value="vitalSigns"> Obtain vital signs</label>
+            <label><input type="checkbox" name="step" value="reassessment"> Reassessment</label>
+            <button type="button" id="completeAssessmentBtn">Complete Assessment</button>
+        </form>
+        <div id="assessmentResult"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

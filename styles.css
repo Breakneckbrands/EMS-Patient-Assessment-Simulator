@@ -28,3 +28,17 @@ body {
 #patientInfo p {
     margin: 5px 0;
 }
+
+#assessment {
+    margin-top: 20px;
+}
+
+#assessment label {
+    display: block;
+    margin: 5px 0;
+}
+
+#assessmentResult {
+    margin-top: 10px;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+#controls label {
+    margin-right: 10px;
+}
+
+#controls select {
+    margin-right: 20px;
+}
+
+#controls button {
+    margin-right: 10px;
+}
+
+#patientInfo {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#patientInfo p {
+    margin: 5px 0;
+}
